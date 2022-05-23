@@ -1,0 +1,65 @@
+\documentclass{scrartcl}
+\usepackage[english]{babel}
+\usepackage{blindtext}
+\usepackage{geometry} 	% Page Layout
+\usepackage{xcolor}		% Response coloring 
+\usepackage{scrextend}	% Indent text blocks 
+
+
+% Define environments 
+\newcounter{feedbackcounter}[section]
+\newenvironment{feedback}{\refstepcounter{feedbackcounter}\par\medskip\noindent \textbf{\thefeedbackcounter. Feedback:} \rmfamily}{\medskip}
+\newenvironment{response}{\par\medskip\noindent \begingroup\color{blue}\begin{addmargin}[3em]{0em}\textbf{Response: }\ignorespaces }{\end{addmargin}\endgroup\medskip \ \\}
+
+% Set page layout 
+\geometry{a4paper, top=15mm, left=20mm, right=20mm, bottom=20mm,
+headsep=1mm, footskip=12mm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Metadata
+\def\doctype{Master's Thesis} % FIXME
+\def\doctitle{Fancy Thesis Title} % FIXME
+\def\supervisor{Prof. Dr. Stephan Krusche} % FIXME
+\def\advisor{Prof. Dr. Stephan Krusche} % FIXME
+\def\author{Name Name} % FIXME
+\def\presentation_date{04.05.22} % FIXME
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Define title from metadata
+\title{Presentation Feedbacklog \\ \doctype \ \author \ \\ \doctitle}
+
+
+\begin{document}
+	\maketitle
+	\noindent
+	\rule{\linewidth}{.1mm}	
+	\begin{center}
+		\begin{tabular}{ll}
+			Author:            &  \author     \\
+			Supervisor: 	       &  \supervisor \\				
+			Advisor:	           &  \advisor    \\
+			Presentation date: &  \presentation_date
+		\end{tabular}
+	\end{center}
+	\noindent
+	\rule{\linewidth}{.1mm}	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	% Start adding your feedback here
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\begin{feedback}
+		\blindtext
+	\end{feedback}		
+	\begin{response}
+		\blindtext	
+	\end{response}
+	
+	
+	\begin{feedback}
+		\blindtext
+	\end{feedback}		
+	\begin{response}
+		\blindtext	
+	\end{response}
+\end{document}
